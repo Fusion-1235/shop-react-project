@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Banners() {
   return (
-    <div className="w-[85%] mx-auto flex flex-col mt-52 md:flex-row gap-4 p-4" dir='rtl'>
+    <div className="mx-auto flex flex-col mt-52 md:flex-row gap-4 py-4" dir='rtl'>
       <Link
         href="/Banners/Tools"
         className="flex-1 rounded-xl overflow-hidden shadow-md transition-transform hover:scale-[1.02]"

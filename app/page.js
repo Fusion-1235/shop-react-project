@@ -16,7 +16,7 @@ import Footer from "./Footer";
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="max-w-[80%] m-auto">
       <CategorySlider />
       <MainBannerSlider />
       <Advantages />

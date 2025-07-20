@@ -135,9 +135,11 @@ export default function Menu({ isOpen, onClose }) {
           ))}
         </ul>
 
-        <div className="mt-auto pt-10 text-sm text-center text-blue-600 font-semibold">
-          ورود / ثبت‌نام
-        </div>
+        <Link href="/Header/LoginSignUp">
+          <div className="mt-auto text-sm text-center font-semibold">
+            ورود / ثبت‌نام
+          </div>
+        </Link>
       </div>
     </>,
     document.getElementById('menu-portal')

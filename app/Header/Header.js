@@ -24,7 +24,7 @@ export default function Header() {
 
           {/* چپ: ورود و سبد خرید */}
         <div className="flex items-center gap-4 relative">
-      <button className="text-sm">ورود / ثبت‌نام</button>
+       <Link href="/Header/LoginSignUp"><button className="text-sm">ورود / ثبت‌نام</button></Link>
 
       {/* سبد خرید با آیکون و عدد */}
     <button onClick={() => setIsCartOpen(true)} className="relative bg-black text-white rounded-full px-4 py-2 flex items-center gap-2">
