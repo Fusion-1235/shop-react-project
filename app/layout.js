@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation'; // اضافه شد
@@ -7,6 +7,7 @@ import MobileNavbar from './Header/MobileNavbar';
 import Cart from './Header/Cart';
 import Menu from './Header/Menu';
 import './globals.css';
+import AuthProvider from "./providers/AuthProvider"; // از بک‌اند اومده
 
 export default function RootLayout({ children }) {
   const pathname = usePathname(); // اضافه شد
@@ -23,29 +24,31 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body>
-        <div id="cart-portal" />
-        <div id="menu-portal" />
+        <AuthProvider>
+          <div id="cart-portal" />
+          <div id="menu-portal" />
 
-        {/* فقط زمانی که صفحه login-signup نیست */}
-        {!isAuthPage && (
-          <>
-            <Header
-              isCartOpen={isCartOpen}
-              setIsCartOpen={setIsCartOpen}
-              isMenuOpen={isMenuOpen}
-              setIsMenuOpen={setIsMenuOpen}
-            />
-            <MobileNavbar
-              setIsCartOpen={setIsCartOpen}
-              isCartOpen={isCartOpen}
-            />
-          </>
-        )}
+          {/* فقط زمانی که صفحه login-signup نیست */}
+          {!isAuthPage && (
+            <>
+              <Header
+                isCartOpen={isCartOpen}
+                setIsCartOpen={setIsCartOpen}
+                isMenuOpen={isMenuOpen}
+                setIsMenuOpen={setIsMenuOpen}
+              />
+              <MobileNavbar
+                setIsCartOpen={setIsCartOpen}
+                isCartOpen={isCartOpen}
+              />
+            </>
+          )}
 
-        {children}
+          <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+          <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
-        <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
-        <Menu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
