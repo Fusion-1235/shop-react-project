@@ -7,6 +7,8 @@ import { FaChevronLeft, FaSearch } from 'react-icons/fa';
 
 export default function Menu({ isOpen, onClose }) {
   const [mounted, setMounted] = useState(false);
+  const [show, setShow] = useState(false);
+  const [animateIn, setAnimateIn] = useState(false);
   const [openIndexes, setOpenIndexes] = useState({});
 
   useEffect(() => {
@@ -20,7 +22,22 @@ export default function Menu({ isOpen, onClose }) {
     }));
   };
 
-  if (!isOpen || !mounted) return null;
+  useEffect(() => {
+    let timeoutId;
+
+    if (isOpen) {
+      setShow(true);
+      // کمی تاخیر می‌دهیم تا انیمیشن باز شدن درست اجرا شود
+      timeoutId = setTimeout(() => setAnimateIn(true), 20);
+    } else {
+      setAnimateIn(false);
+      timeoutId = setTimeout(() => setShow(false), 300);
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [isOpen]);
+
+  if (!mounted || !show) return null;
 
   const menuItems = [
     {
@@ -68,12 +85,25 @@ export default function Menu({ isOpen, onClose }) {
 
   return createPortal(
     <>
-      {/* بک‌دراب تار */}
-      <div onClick={onClose} className="fixed inset-0 bg-[rgba(0,0,0,0.6)] z-60" />   
+      {/* بک‌دراب تار با ترنزیشن opacity */}
+      <div
+        onClick={onClose}
+        className={`fixed inset-0 bg-[rgba(0,0,0,0.6)] z-60 transition-opacity duration-300 ${
+          animateIn ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      />
 
-      {/* سایدبار منو */}
-      <div className="fixed top-0 right-0 h-full w-[75%] bg-white z-60 p-4 shadow-md flex flex-col text-right overflow-y-auto">
-        <button onClick={onClose} className="absolute top-4 left-4 text-2xl" aria-label="بستن منو">
+      {/* سایدبار منو با ترنزیشن slide-in/out */}
+      <div
+        className={`fixed top-0 right-0 h-full w-[75%] bg-white z-60 p-4 shadow-md flex flex-col text-right overflow-y-auto transition-transform duration-300 ${
+          animateIn ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 left-4 text-2xl"
+          aria-label="بستن منو"
+        >
           ✕
         </button>
 

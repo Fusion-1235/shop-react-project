@@ -14,7 +14,7 @@ export default function NewsletterForm() {
   return (
     <div className="flex justify-center mt-10">
       <div
-        className="max-w-[83%] w-full rounded-xl p-6 flex flex-col-reverse md:flex-row items-center gap-6 bg-white"
+        className="w-full rounded-xl p-6 flex flex-col-reverse md:flex-row items-center gap-6 bg-white"
         style={{
           boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)"
         }}

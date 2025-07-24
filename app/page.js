@@ -13,25 +13,28 @@ import CategoryBoxSlider from "./CategoryBoxSlider";
 import NewsletterForm from "./NewsletterForm";
 import MeloBranches from "./MeloBranches";
 import Footer from "./Footer";
+import './globals.css';
 
 export default function HomePage() {
   return (
-    <main className="max-w-[80%] m-auto">
-      <CategorySlider />
-      <MainBannerSlider />
-      <Advantages />
-      <SaleSlider />
-      <Banners />
-      <ProductTabsSlider />
-      <CoffeeTypesSection />
-      <CoffeeTools />
-      <AllSliders />
-      <Card />
-      <CardEnvironment />
-      <CategoryBoxSlider />
-      <NewsletterForm />
-      <MeloBranches />
+    <div>
+      <main className="max-w-[90%] m-auto">
+        <CategorySlider />
+        <MainBannerSlider />
+        <Advantages />
+        <SaleSlider />
+        <Banners />
+        <ProductTabsSlider />
+        <CoffeeTypesSection />
+        <CoffeeTools />
+        <AllSliders />
+        <Card />
+        <CardEnvironment />
+        <CategoryBoxSlider />
+        <NewsletterForm />
+        <MeloBranches />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }

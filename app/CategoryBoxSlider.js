@@ -27,10 +27,10 @@ export default function ProductSlider() {
   };
 
   return (
-    <div className="w-[88.5%] lg:w-[84.5%] mx-auto py-10">
+    <div className="mx-auto py-10">
       <Slider {...settings}>
         {products.map((product) => (
-          <div key={product.id} className="px-[3%]">
+          <div key={product.id} className="px-[1%]">
             <div className="relative bg-white text-black rounded-xl border border-zinc-200 h-[380px] flex flex-col justify-between cursor-pointer select-none overflow-hidden text-right">
               
               {/* تصویر */}

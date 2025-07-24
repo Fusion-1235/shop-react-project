@@ -1,87 +1,57 @@
-import connectToDb from "@/lib/connectToDb";
-import User from "@/models/User";
-import NextAuth from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcryptjs";
-import { loginUserValidationSchema } from "@/lib/validation/loginUserValidation";
+import NextAuth from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
-// next auth options
-export const authOptions = {
-  // providers
+const handler = NextAuth({
   providers: [
-    // credentials provider
     CredentialsProvider({
-      name: "Credentials",
+      name: 'Credentials',
       credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" },
+        email: { label: 'Email', type: 'email' },
+        password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials) {
-        // connect to db
-        await connectToDb();
+      async authorize(credentials, req) {
+        const res = await fetch(`${process.env.NEXTAUTH_BACKEND_URL}/api/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: credentials.email,
+            password: credentials.password,
+          }),
+        });
 
-        // validate data
-        const dataValidation = loginUserValidationSchema(credentials);
-        if (!dataValidation.success) {
-          throw new Error("ایمیل یا رمز عبور اشتباه است");
+        const user = await res.json();
+
+        if (!res.ok || !user) {
+          throw new Error(user?.message || 'خطا در ورود');
         }
 
-        // find user
-        const user = await User.findOne({ email: credentials.email });
-
-        if (!user) {
-          throw new Error("ایمیل یا رمز عبور اشتباه است");
-        }
-
-        // compare password
-        const passwordsMatch = await bcrypt.compare(
-          credentials.password,
-          user.password
-        );
-
-        if (!passwordsMatch) {
-          throw new Error("ایمیل یا رمز عبور اشتباه است");
-        }
-
-        // return user
-        return {
-          id: user._id.toString(),
-          fullName: user.fullName,
-          email: user.email,
-        };
+        return user;
       },
     }),
   ],
-  // pages
   pages: {
-    signIn: "/auth/login",
-    signOut: "/auth/login",
+    signIn: '/login', // یا هر مسیر دلخواه تو
   },
-  // session
   session: {
-    strategy: "jwt",
+    strategy: 'jwt',
   },
-  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    // jwt callback
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.fullName = user.fullName;
+        token.email = user.email;
       }
       return token;
     },
-    // session callback
     async session({ session, token }) {
       if (token) {
         session.user.id = token.id;
-        session.user.fullName = token.fullName;
+        session.user.email = token.email;
       }
       return session;
     },
   },
-};
+  secret: process.env.NEXTAUTH_SECRET,
+});
 
-const handle = NextAuth(authOptions);
-
-export { handle as GET, handle as POST };
+export { handler as GET, handler as POST };

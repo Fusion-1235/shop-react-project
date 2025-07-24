@@ -67,8 +67,7 @@ const ProductSlider = () => {
     centerMode: false,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 480, settings: { slidesToShow: 1.3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } }
     ],
   };
 
@@ -79,7 +78,7 @@ const ProductSlider = () => {
   }, []);
 
   return (
-    <div className="w-full px-4">
+    <div className="w-full">
       <Slider ref={sliderRef} {...settings}>
         {products.map((product, index) => (
           <div key={index} className="p-2" style={{ width: 252 }}>
@@ -128,7 +127,7 @@ const BannerSlider = () => {
   };
 
 return (
-  <div className="w-[90%] max-w-[100%] bg-white rounded-lg shadow overflow-hidden mx-auto">
+  <div className="w-[90%] bg-white rounded-lg shadow overflow-hidden mx-auto">
     <Slider {...settings}>
       {banners.map((banner, idx) => (
         <div key={idx} className="block">
@@ -169,12 +168,12 @@ return (
 const AllSliders = () => {
   return (
     <div
-      className="flex max-w-[90%] m-auto flex-col gap-10 px-4 pb-16 overflow-x-hidden"
+      className="flex m-auto flex-col gap-10 pb-16 overflow-x-hidden"
       dir="rtl"
     >
       <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
         {/* ستون بنر */}
-        <div className="w-full lg:w-[21%] flex flex-col items-center gap-4">
+        <div className="w-full lg:w-[21%] py-8 flex flex-col items-center gap-4">
           <h2 className="text-xl font-bold text-center">محبوب‌ترین‌ها</h2>
           <BannerSlider />
         </div>
