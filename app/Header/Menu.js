@@ -4,12 +4,15 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { FaChevronLeft, FaSearch } from 'react-icons/fa';
+import { useSession } from 'next-auth/react';
 
 export default function Menu({ isOpen, onClose }) {
   const [mounted, setMounted] = useState(false);
   const [show, setShow] = useState(false);
   const [animateIn, setAnimateIn] = useState(false);
   const [openIndexes, setOpenIndexes] = useState({});
+
+   const { data: session, status } = useSession();
 
   useEffect(() => {
     setMounted(true);
@@ -165,11 +168,18 @@ export default function Menu({ isOpen, onClose }) {
           ))}
         </ul>
 
-        <Link href="/Header/LoginSignUp">
-          <div className="mt-auto text-sm text-center font-semibold">
-            ورود / ثبت‌نام
-          </div>
-        </Link>
+       <div className="mt-auto text-sm text-center font-semibold">
+  {session ? (
+    <Link href="/my-account">
+      <button className="text-sm">حساب کاربری من</button>
+    </Link>
+  ) : (
+    <Link href="/Header/LoginSignUp">
+      <button className="text-sm">ورود / ثبت‌نام</button>
+    </Link>
+  )}
+</div>
+
       </div>
     </>,
     document.getElementById('menu-portal')

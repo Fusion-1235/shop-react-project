@@ -1,5 +1,5 @@
 import './globals.css';
-import ClientWrapper from '@/components/ClientWrapper';
+import ClientWrapper from '@/app/components/ClientWrapper';
 
 export default function RootLayout({ children }) {
   return (

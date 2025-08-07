@@ -34,7 +34,6 @@ export default function HomePage() {
         <NewsletterForm />
         <MeloBranches />
       </main>
-      <Footer />
     </div>
   );
 }

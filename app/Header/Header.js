@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Menu from './Menu';
 import Cart from './Cart';
@@ -9,6 +10,8 @@ import Cart from './Cart';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const { data: session, status } = useSession();
 
   return (
     <header className="w-full bg-white z-50 border border-[#eee] border-b border-b-[#eee]">
@@ -24,7 +27,17 @@ export default function Header() {
 
           {/* چپ: ورود و سبد خرید */}
         <div className="flex items-center gap-4 relative">
-       <Link href="/Header/LoginSignUp"><button className="text-sm">ورود / ثبت‌نام</button></Link>
+          {session ? (
+            <Link href="/my-account">
+          <button className="text-sm">حساب کاربری من</button>
+            </Link>
+          ) : (
+            <Link href="/Header/LoginSignUp">
+          <button className="text-sm">ورود / ثبت‌نام</button>
+          </Link>
+        )}
+
+
 
       {/* سبد خرید با آیکون و عدد */}
     <button onClick={() => setIsCartOpen(true)} className="relative bg-black text-white rounded-full px-4 py-2 flex items-center gap-2">
