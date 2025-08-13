@@ -158,7 +158,7 @@ export default function EditAccount() {
             <div className="mt-6">
               <button
                 type="submit"
-                className="bg-[#d3a97f] hover:bg-orange-300 cursor-pointer text-white font-medium px-6 py-2 rounded-xl"
+                className="bg-[#d3a97f] hover:bg-orange-300 cursor-pointer text-white font-medium px-6 py-2 rounded-4xl"
               >
                 ذخیره تغییرات
               </button>

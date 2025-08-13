@@ -45,7 +45,7 @@ export default function ProductSlider() {
                 />
                 
                 {/* نوشته پایین وسط عکس */}
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white text-xs py-[2px] rounded-t-md">
+                <span className="absolute bottom-0 p-2 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white text-xs py-[2px] rounded-t-md">
                   دانستنی‌های قهوه
                 </span>
               </div>
@@ -54,7 +54,7 @@ export default function ProductSlider() {
               <div className="p-3 flex flex-col flex-1 justify-between">
                 
                 {/* توضیح */}
-                <p className="text-xl font-semibold p-3 leading-6 line-clamp-3">{product.describe}</p>
+                <p className="text-xl m-auto font-semibold p-3 leading-6 line-clamp-3">{product.describe}</p>
                 
                 {/* نویسنده و آیکون‌ها */}
                 <div className="flex items-center m-auto justify-end gap-2 text-[12px] text-gray-600 mb-2">
