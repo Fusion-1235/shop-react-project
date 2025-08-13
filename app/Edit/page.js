@@ -25,44 +25,25 @@ export default function EditAccount() {
 
       <div className="flex flex-col gap-3 md:flex-row w-full p-4 md:p-8">
         {/* Sidebar */}
-        <div className="w-full md:w-1/4 md:pr-6">
-          <div className="bg-white rounded shadow p-4">
-            <ul className="space-y-2">
-              <li>
-                <Link href="/my-account">
-                <p className="text-gray-700 px-3 py-2 cursor-pointer rounded hover:bg-gray-200 hover:text-black block">
-                  پیشخوان
-                </p>
-                </Link>
-              </li>
-              <li>
-                <p className="text-gray-700 px-3 py-2 cursor-pointer rounded hover:bg-gray-200 hover:text-black block">
-                  سفارش ها
-                </p>
-              </li>
-              <li>
-                <p className="text-gray-700 px-3 py-2 cursor-pointer rounded hover:bg-gray-200 hover:text-black block">
-                  آدرس
-                </p>
-              </li>
-              <li>
-                <p className="text-gray-700 px-3 py-2 cursor-pointer rounded hover:bg-gray-200 hover:text-black block">
-                  کیف پول من
-                </p>
-              </li>
-              <li>
-                <p className="w-full bg-gray-200 text-gray-700 px-3 py-2 rounded" disabled>
+        <aside className="w-full md:w-1/4 shadow-md rounded-lg p-4">
+          <ul className="space-y-3 text-sm">
+            <Link href="/my-account"><li className="hover:bg-gray-100 p-2 rounded">پیشخوان</li></Link>
+              <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">سفارش ها</li>
+              <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">آدرس</li>
+              <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">کیف پول من</li>
+              <li
+                  className="bg-gray-100 p-2 rounded"
+                  onClick={(e) => e.preventDefault()}>
                   اطلاعات حساب کاربری
-                </p>
               </li>
-              <li>
-                <p className="text-gray-700 px-3 py-2 cursor-pointer rounded hover:bg-gray-200 hover:text-black block">
-                  خروج
-                </p>
+              <li
+                className="hover:bg-gray-100 p-2 rounded cursor-pointer"
+                onClick={() => signOut({ redirect: true, callbackUrl: "/" })}
+              >
+                خروج
               </li>
-            </ul>
-          </div>
-        </div>
+          </ul>
+        </aside>
 
         {/* Main Form */}
         <div className="w-full md:w-3/4 bg-white rounded shadow p-6">
