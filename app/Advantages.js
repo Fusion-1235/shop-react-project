@@ -10,7 +10,7 @@ const advantages = [
 
 export default function Advantages() {
   return (
-    <section className="py-12 px-4 w-[80%] m-auto bg-white text-center">
+    <section className="py-12 px-4 m-auto bg-white text-center">
       <h2 className="text-2xl font-bold mb-10">
         <span>چرا از ملو کافی خرید کنم؟</span>
         <span className="text-yellow-400 text-xl ml-2">★</span>

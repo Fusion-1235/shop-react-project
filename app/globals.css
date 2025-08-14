@@ -1,3 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import "tailwindcss";
 @import 'swiper/css';
 @import 'swiper/css/navigation';
+
+body {
+  font-family: "Vazirmatn", sans-serif;
+}

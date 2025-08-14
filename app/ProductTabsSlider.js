@@ -33,7 +33,7 @@ export default function ProductTabsSlider() {
   const [activeTab, setActiveTab] = useState('جدید ترین محصولات');
 
   return (
-    <div className="bg-white shadow-md rounded-xl p-4 w-[83%] max-w-[1400px] mx-auto mt-8" dir="rtl">
+    <div className="bg-white shadow-md rounded-xl p-4 mx-auto mt-8" dir="rtl">
       
       {/* تب‌ها */}
       <div className="flex flex-wrap gap-2 justify-start mb-4 border-b border-gray-200">

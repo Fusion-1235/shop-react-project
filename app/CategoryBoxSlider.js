@@ -27,10 +27,10 @@ export default function ProductSlider() {
   };
 
   return (
-    <div className="w-[88.5%] lg:w-[84.5%] mx-auto py-10">
+    <div className="mx-auto py-10">
       <Slider {...settings}>
         {products.map((product) => (
-          <div key={product.id} className="px-[3%]">
+          <div key={product.id} className="px-[1%]">
             <div className="relative bg-white text-black rounded-xl border border-zinc-200 h-[380px] flex flex-col justify-between cursor-pointer select-none overflow-hidden text-right">
               
               {/* تصویر */}
@@ -45,7 +45,7 @@ export default function ProductSlider() {
                 />
                 
                 {/* نوشته پایین وسط عکس */}
-                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white text-xs py-[2px] rounded-t-md">
+                <span className="absolute bottom-0 p-2 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white text-xs py-[2px] rounded-t-md">
                   دانستنی‌های قهوه
                 </span>
               </div>
@@ -54,7 +54,7 @@ export default function ProductSlider() {
               <div className="p-3 flex flex-col flex-1 justify-between">
                 
                 {/* توضیح */}
-                <p className="text-xl font-semibold p-3 leading-6 line-clamp-3">{product.describe}</p>
+                <p className="text-xl m-auto font-semibold p-3 leading-6 line-clamp-3">{product.describe}</p>
                 
                 {/* نویسنده و آیکون‌ها */}
                 <div className="flex items-center m-auto justify-end gap-2 text-[12px] text-gray-600 mb-2">

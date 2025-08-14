@@ -40,9 +40,9 @@ const MainBannerSlider = () => {
             <Image
               src={item.image}
               alt={item.title}
-              width={1200}
+              width={10000}
               height={600}
-              className="w-[81%] m-auto object-cover"
+              className="m-auto object-cover"
               priority
             />
             <div className="absolute top-1/3 right-10 text-white z-10">

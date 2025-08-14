@@ -81,7 +81,7 @@ export default function SaleSlider() {
 
   return (
     <div
-      className="relative rounded-2xl w-[83%] mx-auto text-white px-4 text-center overflow-visible min-h-[420px] md:min-h-[320px] bg-cover bg-center"
+      className="relative rounded-2xl mx-auto text-white px-4 text-center overflow-visible min-h-[420px] md:min-h-[320px] bg-cover bg-center"
       style={{ backgroundImage: "url('/images/Frame-289-1.jpg')" }}
     >
       {/* متن‌ها با z-index بالا */}

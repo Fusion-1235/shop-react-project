@@ -22,7 +22,7 @@ export default function Branches() {
   ];
 
   return (
-    <div className="flex flex-col m-auto items-center gap-6 p-6 mt-[60px] text-right max-w-[90.5%] md:max-w-[86.5%]">
+    <div className="flex flex-col m-auto items-center gap-6 py-6 mt-[60px] text-right">
       <h1 className="text-2xl font-bold text-gray-800">دسترسی به شعب ملو کافی</h1>
       <div className="flex flex-col-reverse md:flex-row gap-4 w-full" dir="rtl">
         {branches

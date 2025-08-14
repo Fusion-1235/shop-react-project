@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Card() {
   return (
-    <div className="bg-white rounded-lg p-6 w-[83%] hidden md:block text-right direction-rtl mx-auto mt-10"
+    <div className="bg-white rounded-lg p-6  hidden md:block text-right direction-rtl mx-auto mt-10"
          style={{ boxShadow: '0 20px 60px rgba(0, 0, 0, 0.2)' }}>
       <h2 className="text-3xl font-bold text-gray-800 mb-4">درباره ملو کافی</h2>
       <p className="text-gray-700 leading-8">
@@ -15,7 +15,7 @@ export default function Card() {
         نوشیدنی‌های متفاوت، ارتقاء کیفیت محصولات در ایران و همچنین اطلاع‌رسانی به مشتریان و تبادل نظر با آن‌ها در زمینه‌های مختلف را دارد تا در بلند مدت فرهنگ بررسی و خرید نوشیدنی و تجهیزات مختلف در زمینه قهوه را بصورت اینترنتی جا انداخته و میسر سازد.
       </p>
 
-      <div className="flex justify-end mt-6 space-x-4 space-x-reverse">
+      <div className="flex mt-6 space-x-4">
         <button className="bg-white border border-[#4d3227] text-[#4d3227] mr-2 px-5 py-2 rounded-lg">تماس با ما</button>
         <button className="bg-[#4d3227] text-white px-5 py-2 rounded-lg">درباره ما</button>
       </div>

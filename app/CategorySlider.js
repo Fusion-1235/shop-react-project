@@ -40,7 +40,7 @@ const CategorySlider = () => {
   };
 
   return (
-    <div className="category-slider py-11 px-[10%] ">
+    <div className="category-slider py-11 ">
       <Slider {...settings}>
         {categories.map((cat, index) => (
           <div key={index} className="text-center px-2 sm:px-3 md:px-4">
